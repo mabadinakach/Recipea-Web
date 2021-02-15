@@ -1,3 +1,39 @@
+Purpose:
+  The purpose of the app is to allow users to input/select recipe ingridients and have generated recipes developed as a result. 
+
+Developers:
+ Jennalyn Kibiling, Marcos Abadi, JConr B. Riddell, Lily Moon
+
+Tools used: Flask, Bootstrap,  Prep-developed Template. 
+
+
+
+Project Foundings:
+  This developed project was developed as a passion project, founded on the idea of needing to improve the simple idea of finding a good recipe to make. Users are given either a selected recipe based on their chosen ingredents or have a random one developed. This app gives the user a new spiced up ability to not only create recipes, but also the oppurtunity to be introduced into new recipes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # [Start Bootstrap - Stylish Portfolio](https://startbootstrap.com/theme/stylish-portfolio/)
 
 [Stylish Portfolio](https://startbootstrap.com/theme/stylish-portfolio/) is a responsive, one page portfolio theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). The theme features multiple content sections with an off canvas navigation menu.
