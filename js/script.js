@@ -97,9 +97,69 @@ for(var i = 0;i<list.length; i++) {
 
 }
 
+window.addEventListener( "load", function( windowLoadE ) {
+    var p, letter, button, holder;
+    holder = document.getElementById( "buttonsHolder" );
+    for ( var i = 65; i <= 90; i++ ) {
+        if ( i == 65 || i == 75 || i == 84 ) {
+            p = document.createElement( "p" );
+        }
+        letter = String.fromCharCode( i );
+        button = document.createElement( "button" );
+        button.innerHTML = letter;
+        button.setAttribute( "data-letter", letter );
+        button.onclick = function( e ) { setLetter( this.getAttribute( "data-letter" ) ); };
+        p.appendChild( button );
+        if ( i == 74 || i == 83 || i == 90 ) {
+            holder.appendChild( p );
+        }
+    }
+} );
 
+function setLetter( letter ) {
+    var div = document.getElementById( "name" );
+    div.innerHTML = letter;
+    const filteredIngredientsList = ingredientsList.filter((ingredient) => ingredient.startsWith(letter.toLowerCase()));
+    console.log(filteredIngredientsList);
 
+    var div = document.getElementById('ingredients-items');
+    while(div.firstChild){
+      div.removeChild(div.firstChild);
+    }
 
+    var ingredients = document.getElementById("ingredients-items")
+    console.log(ingredients)
+
+    for (var i = 0; i<filteredIngredientsList.length; i++) {
+        var card = document.createElement('div')
+        card.className = "col-6 col-md-4"
+        card.id = filteredIngredientsList[i]
+        card.style.padding = "5px"
+        var a = document.createElement('a')
+        a.className = "portfolio-item"
+        a.href = "#!"
+        var caption = document.createElement('div')
+        caption.className = "caption"
+        var captionContent = document.createElement('div')
+        captionContent.className = "caption-content"
+        var header = document.createElement('div')
+        header.className = "h2"
+        header.innerHTML = filteredIngredientsList[i]
+        var text = document.createElement('p')
+        text.className = "mb-0"
+        text.innerHTML = ""
+        var img = document.createElement('img')
+        img.className = "img-fluid"
+        img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
+        card.append(a)
+        a.append(caption)
+        a.append(img)
+        caption.append(captionContent)
+        captionContent.append(header)
+        captionContent.append(text)
+        ingredients.append(card)
+    }
+}
 
 // var card = document.createElement('div')
 // card.className = "col-lg-6"
