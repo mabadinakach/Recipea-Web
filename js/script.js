@@ -12,7 +12,7 @@ const userAction = async () => {
         card.className = "col-lg-6"
         var a = document.createElement('a')
         a.className = "portfolio-item"
-        a.href = "#!"
+        a.href = `recipe.html?${myJson["recipes"][i]["title"]}=${myJson["recipes"][i]["id"]}`
         var caption = document.createElement('div')
         caption.className = "caption"
         var captionContent = document.createElement('div')
