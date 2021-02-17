@@ -2,7 +2,7 @@ Purpose:
   The purpose of the app is to allow users to input/select recipe ingridients and have generated recipes developed as a result. 
 
 Developers:
- Jennalyn Kibiling, Marcos Abadi, JConr B. Riddell, Lily Moon
+ Jennalyn Kabiling (SCRUM MASTER), Marcos Abadi (Front-End/Back-End), JConr B. Riddell (Front-End), Lily Moon (Front-End/Back-End)
 
 Tools used: Flask, Bootstrap,  Prep-developed Template. 
 
