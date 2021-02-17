@@ -1,37 +1,13 @@
-Purpose:
-  The purpose of the app is to allow users to input/select recipe ingridients and have generated recipes developed as a result. 
+RECIPEA created by Marcos Abadi, JConr B. Riddell, Lily Moon, & Jennalyn Kabiling
+Built with Bootstrap, JavaScript, CSS, Flask
 
-Developers:
- Jennalyn Kabiling (SCRUM MASTER), Marcos Abadi (Front-End/Back-End), JConr B. Riddell (Front-End), Lily Moon (Front-End/Back-End)
+The purpose of the app is to allow users to input/select recipe ingridients and have generated recipes developed as a result. 
 
-Tools used: Flask, Bootstrap,  Prep-developed Template. 
-
-
+Roles:
+Jennalyn Kabiling (SCRUM MASTER), Marcos Abadi (Front-End/Back-End), JConr B. Riddell (Front-End), Lily Moon (Front-End/Back-End)
 
 Project Foundings:
-  This developed project was developed as a passion project, founded on the idea of needing to improve the simple idea of finding a good recipe to make. Users are given either a selected recipe based on their chosen ingredents or have a random one developed. This app gives the user a new spiced up ability to not only create recipes, but also the oppurtunity to be introduced into new recipes. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+This project was developed as a passion project, founded on the idea of needing to improve the simple idea of finding a good recipe to make. Especially in a time like this, we are needing to find more accessible ways to make meals and feed our families with what we have in our fridge. So our website will allow users to choose from either a selected recipe based on their chosen ingredents or have a random one developed. This website gives the user a new spiced up ability to not only create recipes, but also the oppurtunity to be introduced into new recipes. 
 
 
 # [Start Bootstrap - Stylish Portfolio](https://startbootstrap.com/theme/stylish-portfolio/)
