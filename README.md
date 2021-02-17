@@ -1,7 +1,7 @@
 RECIPEA created by Marcos Abadi, JConr B. Riddell, Lily Moon, & Jennalyn Kabiling
 Built with Bootstrap, JavaScript, CSS, Flask
 
-The purpose of the app is to allow users to input/select recipe ingridients and have generated recipes developed as a result. 
+The purpose of our website is to allow users to input/select recipe ingredients and have generated recipes developed as a result. 
 
 Roles:
 Jennalyn Kabiling (SCRUM MASTER), Marcos Abadi (Front-End/Back-End), JConr B. Riddell (Front-End), Lily Moon (Front-End/Back-End)
