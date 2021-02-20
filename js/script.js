@@ -116,6 +116,8 @@ window.addEventListener( "load", function( windowLoadE ) {
     }
 } );
 
+var ingredientsArrayFilter = []
+
 function setLetter( letter ) {
     var div = document.getElementById( "name" );
     div.innerHTML = letter;
@@ -159,7 +161,109 @@ function setLetter( letter ) {
         captionContent.append(text)
         ingredients.append(card)
     }
+
+
+    var list = document.querySelectorAll('.col-6');
+    for(var i = 0;i<list.length; i++) {
+        list[i].addEventListener('click', function(ev) {
+            console.log(`${this.id}`)
+            ev.target.classList.toggle('checked');
+            console.log(this)
+
+            if (ev.target.classList.contains('checked')) {
+                ingredientsArrayFilter.push(this.id)
+            } else {
+                for(var j = 0; j<ingredientsArrayFilter.length; j++) {
+                    if (ingredientsArrayFilter[j] == this.id) {
+                        ingredientsArrayFilter.pop(j)
+                    }
+                }
+            }
+            console.log(ingredientsArrayFilter)
+
+        }, false);
+
+    }
 }
+
+var filterResetButton = document.createElement("button");
+filterResetButton.innerHTML = "Filter Reset";
+
+document.getElementById("filterResetButton").addEventListener("click", function()  {
+  // var ingredients = document.getElementById("filterResetButton")
+  // console.log(ingredientsArrayFilter)
+  console.log('filterResetButton')
+  var ingredients = document.getElementById("ingredients-items")
+  console.log(ingredients)
+
+  var div = document.getElementById('ingredients-items');
+  while(div.firstChild){
+    div.removeChild(div.firstChild);
+  }
+
+  for (var i = 0; i<ingredientsList.length; i++) {
+      var card = document.createElement('div')
+      card.className = "col-6 col-md-4"
+      card.id = ingredientsList[i]
+      card.style.padding = "5px"
+      var a = document.createElement('a')
+      a.className = "portfolio-item"
+      a.href = "#!"
+      var caption = document.createElement('div')
+      caption.className = "caption"
+      var captionContent = document.createElement('div')
+      captionContent.className = "caption-content"
+      var header = document.createElement('div')
+      header.className = "h2"
+      if (ingredientsArrayFilter.includes(ingredientsList[i])) {
+        header.className = "checked"
+      }
+      header.innerHTML = ingredientsList[i]
+      var text = document.createElement('p')
+      text.className = "mb-0"
+      text.innerHTML = ""
+      var img = document.createElement('img')
+      img.className = "img-fluid"
+      img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
+      card.append(a)
+      a.append(caption)
+      a.append(img)
+      caption.append(captionContent)
+      captionContent.append(header)
+      captionContent.append(text)
+      ingredients.append(card)
+  }
+
+  var list = document.querySelectorAll('.col-6');
+  for(var i = 0;i<list.length; i++) {
+      list[i].addEventListener('click', function(ev) {
+          console.log(`${this.id}`)
+          console.log(this.id)
+          console.log(ingredientsArrayFilter)
+
+          if (ingredientsArrayFilter.includes(this.id)) {
+            console.log('inarray')
+              if (ev.target.classList.contains('checked')) {
+                console.log('checked')
+                ev.target.classList.toggle('checked')
+              }
+              for(var j = 0; j<ingredientsArrayFilter.length; j++) {
+                  if (ingredientsArrayFilter[j] == this.id) {
+                      delete ingredientsArrayFilter[j]
+                      ingredientsArrayFilter = ingredientsArrayFilter.filter(function(item){ return item != undefined; });
+                  }
+              }
+          } else {
+            ingredientsArrayFilter.push(this.id)
+            ev.target.classList.toggle('checked')
+          }
+          console.log(ingredientsArrayFilter)
+
+      }, false);
+
+  }
+
+});
 
 // var card = document.createElement('div')
 // card.className = "col-lg-6"
