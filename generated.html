@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Recipea</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+    
+</head>
+
+<body id="page-top">
+    
+    <!-- Navigation -->
+    <!-- <a class="menu-toggle rounded" href="#">
+        <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#page-top">Home</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav> -->
+    
+    <!-- Header -->
+    
+    
+    <!-- Portfolio -->
+    <section class="content-section" id="results">
+        <div class="container">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">RECIPEA</h3>
+                <h2 class="mb-5">Results for:</h2>
+                <h2 class="text-secondary mb-0" id="result-array"></h2>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin: 10px;" href="ingredients.html">Choose new ingredients</a>
+            </div>
+            <div class="row no-gutters" id="results-items">
+                <!-- <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Stationary</div>
+                                <p class="mb-0">A yellow pencil with envelopes on a clean, blue backdrop!</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio-1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Ice Cream</div>
+                                <p class="mb-0">A dark blue background with a colored pencil, a clip, and a tiny ice cream cone!</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio-2.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Strawberries</div>
+                                <p class="mb-0">Strawberries are such a tasty snack, especially with a little sugar on top!</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio-3.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="#!">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Workspace</div>
+                                <p class="mb-0">A yellow workspace with some scissors, pencils, and other objects.</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio-4.jpg" alt="">
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <!-- <ul class="list-inline mb-5">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="#!">
+                        <i class="icon-social-facebook"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="#!">
+                        <i class="icon-social-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white" href="#!">
+                        <i class="icon-social-github"></i>
+                    </a>
+                </li>
+            </ul> -->
+            <p class="text-muted small mb-0">Copyright &copy; Your Website 2020</p>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+    <!-- Custom scripts for this template -->
+    <script src="js/stylish-portfolio.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        
+        var ingredients = sessionStorage.getItem('ingredients');
+        console.log(ingredients);
+
+        var tags = ""
+        for (var i = 0;i <ingredients.length; i++) {
+            if (ingredients[i] != "+") {
+                tags = tags + ingredients[i]
+            }
+            console.log(tags)
+        } 
+        
+
+        var resultText = document.getElementById("result-array")
+        resultText.innerHTML = tags
+
+
+        
+        const getRecipes = async () => {
+            var response = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=17aacff51e834c24acb4cd2dcdea4cce`);
+            console.log(response)
+            const myJson = await response.json(); //extract JSON from the http response
+            // do something with myJson
+            console.log(myJson)
+            var portfolio = document.getElementById("results-items")
+            console.log(portfolio)
+            
+            for (var i = 0; i<myJson.length; i++) {
+                var card = document.createElement('div')
+                card.className = "col-lg-6"
+                var a = document.createElement('a')
+                a.className = "portfolio-item"
+                a.href = `recipe.html?${myJson[i]["title"]}=${myJson[i]["id"]}`
+                var caption = document.createElement('div')
+                caption.className = "caption"
+                var captionContent = document.createElement('div')
+                captionContent.className = "caption-content"
+                var header = document.createElement('div')
+                header.className = "h2"
+                header.innerHTML = myJson[i]["title"]
+                var text = document.createElement('p')
+                text.className = "mb-0"
+                text.innerHTML = ""
+                var img = document.createElement('img')
+                img.className = "img-fluid"
+                img.src = myJson[i]["image"]
+                card.append(a)
+                a.append(caption)
+                a.append(img)
+                caption.append(captionContent)
+                captionContent.append(header)
+                captionContent.append(text)
+                portfolio.append(card)
+            }
+        }
+
+        getRecipes()
+        
+    </script>
+    
+</body>
+
+</html>

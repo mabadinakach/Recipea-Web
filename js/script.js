@@ -265,6 +265,16 @@ document.getElementById("filterResetButton").addEventListener("click", function(
 
 });
 
+
+document.getElementById("search-button").addEventListener("click", function() {
+    for(var i = 0; i<ingredientsArray.length; i++) {
+        if (i>0) {
+            ingredientsArray[i] = "+" + ingredientsArray[i]
+        }
+    }
+    sessionStorage.setItem('ingredients', ingredientsArray);
+});
+
 // var card = document.createElement('div')
 // card.className = "col-lg-6"
 // var a = document.createElement('a')

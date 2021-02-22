@@ -65,11 +65,12 @@ h6 {
   right: 15px;
   bottom: 15px;
   display: none;
-  width: 50px;
-  height: 50px;
+  /* width: 50px; */
+  /* height: 50px; */
+  padding: 10px;
   text-align: center;
   color: white;
-  background: rgba(52, 58, 64, 0.5);
+  background: rgba(22, 152, 2, 0.5);
   line-height: 45px;
 }
 
