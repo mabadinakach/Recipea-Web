@@ -12,12 +12,26 @@
     <title>Recipe</title>
 </head>
 <body>
-    <a class="btn btn-primary btn-xl js-scroll-trigger" href="index.html"><img width="20" height="20" src="https://cdn0.iconfinder.com/data/icons/web-seo-and-advertising-media-1/512/218_Arrow_Arrows_Back-512.png" alt="" srcset=""></a>    
-    <div class="jumbotron jumbotron-fluid" style="background-color: transparent !important;">
+    <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="index.html"><img width="20" height="20" src="https://cdn0.iconfinder.com/data/icons/web-seo-and-advertising-media-1/512/218_Arrow_Arrows_Back-512.png" alt="" srcset=""></a>     -->
+    
+    <header class="masthead d-flex" id="header">
+        <div class="container text-center my-auto">
+            <h1 class="mb-1" id="title" style="color: gold;"></h1>
+            <h3 class="mb-5">
+                
+            </h3>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="index.html">Back</a>
+        </div>
+        <div class="overlay"></div>
+    </header>
+    
+    <!-- <div class="jumbotron jumbotron-fluid" style="background-color: transparent !important;">
         <div class="container">
             <h1 class="display-4" id="title">Fluid jumbotron</h1>
         </div>
-    </div>
+    </div> -->
+    <br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -38,8 +52,8 @@
         </div>
         <br>
         <br>
-        <div class="container" style="margin-bottom: 20px;">
-            <h1>Instructions</h1>
+        <div class="container" id="instructions" style="margin-bottom: 20px;">
+            
             <div class="text-center">
                 <div class="row">
                     <div class="col-4">
@@ -78,10 +92,16 @@
                 var img = document.getElementById("image")
                 img.src = myJson["image"]
                 var list = document.getElementById("ingredientsList")
-                
+                var header = document.getElementById("header")
+                header.style.backgroundImage = `url("https://images.pexels.com/photos/3531700/pexels-photo-3531700.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")`;
                 var steps = document.getElementById("list-tab")
                 var detail = document.getElementById("nav-tabContent")
-                
+                if (myJson["analyzedInstructions"].length > 0) {
+                    var container = document.getElementById("instructions")
+                    var text = document.createElement('h1')
+                    text.innerHTML = "Instructions"
+                    container.prepend(text)
+                }
                 for(var i = 0; i<myJson["extendedIngredients"].length; i++) {
                     var item = document.createElement('li')
                     item.className = "list-group-item"
@@ -91,6 +111,7 @@
                 }
                 
                 var count = 0
+                
                 for(var i = 0; i<myJson["analyzedInstructions"][0]["steps"].length;i++) {
                     if (myJson["analyzedInstructions"][0]["steps"][i]["equipment"].length > 0 || myJson["analyzedInstructions"][0]["steps"][i]["ingredients"].length > 0) {
                         count = count + 1
