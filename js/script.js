@@ -76,6 +76,7 @@ for (var i = 0; i<ingredientsList.length; i++) {
 
 var list = document.querySelectorAll('.col-6');
 var ingredientsArray = []
+var ingredientsText = document.getElementById("ingredients-array")
 for(var i = 0;i<list.length; i++) {
     list[i].addEventListener('click', function(ev) {
         console.log(`${this.id}`)
@@ -84,10 +85,14 @@ for(var i = 0;i<list.length; i++) {
         
         if (ev.target.classList.contains('checked')) {
             ingredientsArray.push(this.id)
+            ingredientsArrayFilter.push(this.id)
+            ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
         } else {
             for(var j = 0; j<ingredientsArray.length; j++) {
                 if (ingredientsArray[j] == this.id) {
                     ingredientsArray.pop(j)
+                    ingredientsArrayFilter.pop(j)
+                    ingredientsText.innerHTML = ingredientsText.innerHTML.replace("/ " + this.id, "")
                 }
             }
         }
@@ -246,11 +251,13 @@ document.getElementById("filterResetButton").addEventListener("click", function(
               if (ev.target.classList.contains('checked')) {
                 console.log('checked')
                 ev.target.classList.toggle('checked')
+                ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
               }
               for(var j = 0; j<ingredientsArrayFilter.length; j++) {
                   if (ingredientsArrayFilter[j] == this.id) {
                       delete ingredientsArrayFilter[j]
                       ingredientsArrayFilter = ingredientsArrayFilter.filter(function(item){ return item != undefined; });
+                      ingredientsText.innerHTML = ingredientsText.innerHTML.replace("/ " + this.id, "")
                   }
               }
           } else {
@@ -338,10 +345,13 @@ document.getElementById("searchFilterButton").addEventListener("click", function
               for(var j = 0; j<ingredientsArrayFilter.length; j++) {
                   if (ingredientsArrayFilter[j] == this.id) {
                       delete ingredientsArrayFilter[j]
+                      ingredientsText.innerHTML = ingredientsText.innerHTML.replace("/ " + this.id, "")
                       ingredientsArrayFilter = ingredientsArrayFilter.filter(function(item){ return item != undefined; });
                   }
               }
           } else {
+              ingredientsArray.push(this.id)
+              ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
             ingredientsArrayFilter.push(this.id)
             ev.target.classList.toggle('checked')
           }
