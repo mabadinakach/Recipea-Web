@@ -15,7 +15,6 @@ This project was developed as a passion project, founded on the idea of needing 
 
 <a href="https://mabadinakach.github.io/Recipea-Web/index.html"><h2>Check out our project</h2></a>
 
-----
 
 Notes: Data fetched from Spoonacular API
 
