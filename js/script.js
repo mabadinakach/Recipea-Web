@@ -350,10 +350,10 @@ document.getElementById("searchFilterButton").addEventListener("click", function
                   }
               }
           } else {
-              ingredientsArray.push(this.id)
-              ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
-            ingredientsArrayFilter.push(this.id)
-            ev.target.classList.toggle('checked')
+                ingredientsArray.push(this.id)
+                ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
+                ingredientsArrayFilter.push(this.id)
+                ev.target.classList.toggle('checked')
           }
           console.log(ingredientsArrayFilter)
 
