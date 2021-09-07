@@ -16,6 +16,8 @@
     
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+
 </head>
 <body>
     
@@ -25,6 +27,8 @@
                 <h3 class="text-secondary mb-0">RECIPEA</h3>
                 <h2 class="mb-5">Ingredients</h2>
                 <h4 class="text-secondary mb-0" id="ingredients-array"></h4>
+                <ul id="ingredients-array-ul">
+                </ul>
                 <br>
                 <label for="searchFilter">Search Ingredients:</label>
                 
@@ -33,7 +37,7 @@
                 <div id="buttonsHolder"></div>
                 <div id="name"></div>
                 <a class="btn btn-primary btn-xl js-scroll-trigger" href="ingredients.html" id="clear" style="margin: 5px;">Clear Ingredients</a>
-                <a class="btn btn-primary btn-xl js-scroll-trigger" id="filterResetButton" style="margin: 5px;">Reset Filter</a>
+                <a style="display: none;" class="btn btn-primary btn-xl js-scroll-trigger" id="filterResetButton" style="margin: 5px;">Reset Filter</a>
             </div>
             <div class="row no-gutters" id="ingredients-items">
                 

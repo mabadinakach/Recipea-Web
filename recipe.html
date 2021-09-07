@@ -15,7 +15,9 @@
     
     <header class="masthead d-flex" id="header">
         <div class="container text-center my-auto">
-            <h1 class="mb-1" id="title" style="color: gold;"></h1>
+            
+            <h1 class="mb-1" id="title" style="color: rgb(155, 216, 180);"></h1>
+            
             <h3 class="mb-5">
                 
             </h3>
@@ -27,6 +29,9 @@
     <br>
     <br>
     <div class="container">
+        <a href="/generated.html"><h1 style="font-size: 50px;" class="text-secondary mb-0">Back</h1></a>
+        <br>
+        <br>
         <div class="row">
             <div class="col-lg-6">
                 <h1>Ingredients</h1>
@@ -59,7 +64,40 @@
         </div>
         <br>
         <br>
+
+        <br>
+
+        <!-- <div class="container">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div> -->
         
+        <br>
+        <br>
         
         
         
@@ -74,11 +112,39 @@
             }
             var title = document.getElementById("title")
             title.innerHTML = paramTitle
+
+            var table = document.getElementById("table-body")
+
+            const getPrice = async () => {
+                const response = await fetch(`https://api.spoonacular.com/recipes/${id}/priceBreakdownWidget.json?apiKey=17aacff51e834c24acb4cd2dcdea4cce`)
+                const myJson = await response.json()
+                console.log(myJson)
+
+                for (var i = 0; i<myJson["ingredients"].length; i++) {
+                    var tr = document.createElement('tr')
+                    var th = document.createElement('th')
+                    th.scope = "row"
+                    th.innerHTML = i.toString()
+                    var td = document.createElement('td')
+                    td.innerHTML = myJson["ingredients"][i]["name"]
+                    var tdPrice = document.createElement('td')
+                    tdPrice.innerHTML = myJson["ingredients"][i]["price"]
+                    tr.append(th)
+                    tr.append(td)
+                    tr.append(tdPrice)
+                    
+                    table.append(tr)
+                    
+                }
+            }
+
+            //getPrice()
             
             const getRecipe = async () => {
+                console.log(id)
                 const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=17aacff51e834c24acb4cd2dcdea4cce`);
                 const myJson = await response.json(); //extract JSON from the http response
-                console.log(myJson)
+                //console.log(myJson)
                 var img = document.getElementById("image")
                 img.src = myJson["image"]
                 var list = document.getElementById("ingredientsList")

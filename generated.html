@@ -59,9 +59,12 @@
     <section class="content-section" id="results">
         <div class="container">
             <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">RECIPEA</h3>
-                <h2 class="mb-5">Results for:</h2>
-                <h2 class="text-secondary mb-0" id="result-array"></h2>
+                <a href="/index.html"><h1 style="font-size: 70px;" class="text-secondary mb-0">RECIPEA</h1></a>
+                <br>
+                <br>
+                <h2 style="font-size: 30px;" class="mb-5">Results for:</h2>
+                <p style="font-size: 30px;" class="text-secondary mb-0" id="result-array"></p>
+                <br>
                 <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin: 10px;" href="ingredients.html">Choose new ingredients</a>
             </div>
             <div class="row no-gutters" id="results-items">
@@ -169,7 +172,7 @@
         
 
         var resultText = document.getElementById("result-array")
-        resultText.innerHTML = tags
+        resultText.innerHTML = tags.replaceAll(",", ",<br>")
 
 
         
@@ -201,6 +204,8 @@
                 var img = document.createElement('img')
                 img.className = "img-fluid"
                 img.src = myJson[i]["image"]
+                img.style.width = "600px"
+                a.style.margin = "20px"
                 card.append(a)
                 a.append(caption)
                 a.append(img)

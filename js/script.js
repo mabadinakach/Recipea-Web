@@ -64,10 +64,12 @@ for (var i = 0; i<ingredientsList.length; i++) {
     text.innerHTML = ""
     var img = document.createElement('img')
     img.className = "img-fluid"
-    img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
+    a.style.height = "200px"
+    //img.src = "https://spoonacular.com/cdn/ingredients_500x500/"+ingredientsList[i] + ".jpg"
+    //img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
     card.append(a)
     a.append(caption)
-    a.append(img)
+    //a.append(img)
     caption.append(captionContent)
     captionContent.append(header)
     captionContent.append(text)
@@ -77,6 +79,7 @@ for (var i = 0; i<ingredientsList.length; i++) {
 var list = document.querySelectorAll('.col-6');
 var ingredientsArray = []
 var ingredientsText = document.getElementById("ingredients-array")
+var ingredientsArrayUl = document.getElementById("ingredients-array-ul")
 for(var i = 0;i<list.length; i++) {
     list[i].addEventListener('click', function(ev) {
         console.log(`${this.id}`)
@@ -86,6 +89,9 @@ for(var i = 0;i<list.length; i++) {
         if (ev.target.classList.contains('checked')) {
             ingredientsArray.push(this.id)
             ingredientsArrayFilter.push(this.id)
+            // var li = document.createElement('li')
+            // li.innerText = this.id
+            // ingredientsArrayUl.append(li)
             ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
         } else {
             for(var j = 0; j<ingredientsArray.length; j++) {
@@ -111,7 +117,13 @@ window.addEventListener( "load", function( windowLoadE ) {
         }
         letter = String.fromCharCode( i );
         button = document.createElement( "button" );
+        button.style.margin = "5px"
+        button.className = "rounded"
+        button.style.backgroundColor = "Green"
         button.innerHTML = letter;
+        button.style.color = "white"
+        button.style.width = "60px"
+        button.style.height = "50px"
         button.setAttribute( "data-letter", letter );
         button.onclick = function( e ) { setLetter( this.getAttribute( "data-letter" ) ); };
         p.appendChild( button );
@@ -126,7 +138,7 @@ var ingredientsArrayFilter = []
 function setLetter( letter ) {
     var div = document.getElementById( "name" );
     div.innerHTML = letter;
-    const filteredIngredientsList = ingredientsList.filter((ingredient) => ingredient.startsWith(letter.toLowerCase()));
+    var filteredIngredientsList = ingredientsList.filter((ingredient) => ingredient.startsWith(letter.toLowerCase()));
     console.log(filteredIngredientsList);
 
     var div = document.getElementById('ingredients-items');
@@ -157,10 +169,12 @@ function setLetter( letter ) {
         text.innerHTML = ""
         var img = document.createElement('img')
         img.className = "img-fluid"
-        img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
+        a.style.height = "200px"
+        //img.src = "https://source.unsplash.com/1600x900/?food"
+        //img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
         card.append(a)
         a.append(caption)
-        a.append(img)
+        //a.append(img)
         caption.append(captionContent)
         captionContent.append(header)
         captionContent.append(text)
@@ -176,11 +190,18 @@ function setLetter( letter ) {
             console.log(this)
 
             if (ev.target.classList.contains('checked')) {
+                ingredientsArray.push(this.id)
                 ingredientsArrayFilter.push(this.id)
+                // var li = document.createElement('li')
+                // li.innerText = this.id
+                // ingredientsArrayUl.append(li)
+                ingredientsText.innerHTML = ingredientsText.innerHTML + " / " + this.id
             } else {
-                for(var j = 0; j<ingredientsArrayFilter.length; j++) {
-                    if (ingredientsArrayFilter[j] == this.id) {
+                for(var j = 0; j<ingredientsArray.length; j++) {
+                    if (ingredientsArray[j] == this.id) {
+                        ingredientsArray.pop(j)
                         ingredientsArrayFilter.pop(j)
+                        ingredientsText.innerHTML = ingredientsText.innerHTML.replace("/ " + this.id, "")
                     }
                 }
             }
@@ -198,45 +219,49 @@ document.getElementById("filterResetButton").addEventListener("click", function(
   // var ingredients = document.getElementById("filterResetButton")
   // console.log(ingredientsArrayFilter)
   console.log('filterResetButton')
-  var ingredients = document.getElementById("ingredients-items")
-  console.log(ingredients)
+  filteredIngredientsList = ingredientsList
+  console.log(filteredIngredientsList)
+
+  
 
   var div = document.getElementById('ingredients-items');
   while(div.firstChild){
     div.removeChild(div.firstChild);
+    console.log(div)
   }
 
+  
+
   for (var i = 0; i<ingredientsList.length; i++) {
-      var card = document.createElement('div')
-      card.className = "col-6 col-md-4"
-      card.id = ingredientsList[i]
-      card.style.padding = "5px"
-      var a = document.createElement('a')
-      a.className = "portfolio-item"
-      a.href = "#!"
-      var caption = document.createElement('div')
-      caption.className = "caption"
-      var captionContent = document.createElement('div')
-      captionContent.className = "caption-content"
-      var header = document.createElement('div')
-      header.className = "h2"
-      if (ingredientsArrayFilter.includes(ingredientsList[i])) {
-        header.className = "checked"
-      }
-      header.innerHTML = ingredientsList[i]
-      var text = document.createElement('p')
-      text.className = "mb-0"
-      text.innerHTML = ""
-      var img = document.createElement('img')
-      img.className = "img-fluid"
-      img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
-      card.append(a)
-      a.append(caption)
-      a.append(img)
-      caption.append(captionContent)
-      captionContent.append(header)
-      captionContent.append(text)
-      ingredients.append(card)
+        var card = document.createElement('div')
+        card.className = "col-6 col-md-4"
+        card.id = ingredientsList[i]
+        card.style.padding = "5px"
+        var a = document.createElement('a')
+        a.className = "portfolio-item"
+        a.href = "#!"
+        var caption = document.createElement('div')
+        caption.className = "caption"
+        var captionContent = document.createElement('div')
+        captionContent.className = "caption-content"
+        var header = document.createElement('div')
+        header.className = "h2"
+        header.innerHTML = ingredientsList[i]
+        var text = document.createElement('p')
+        text.className = "mb-0"
+        text.innerHTML = ""
+        var img = document.createElement('img')
+        img.className = "img-fluid"
+        a.style.height = "200px"
+        //img.src = "https://source.unsplash.com/1600x900/?food"
+        //img.src = "https://img.freepik.com/free-vector/white-background-with-3d-hexagonal-pattern-design_1017-28443.jpg?size=626&ext=jpg"
+        card.append(a)
+        a.append(caption)
+        //a.append(img)
+        caption.append(captionContent)
+        captionContent.append(header)
+        captionContent.append(text)
+        ingredients.append(card)
   }
 
   var list = document.querySelectorAll('.col-6');
@@ -245,7 +270,7 @@ document.getElementById("filterResetButton").addEventListener("click", function(
           console.log(`${this.id}`)
           console.log(this.id)
           console.log(ingredientsArrayFilter)
-
+        
           if (ingredientsArrayFilter.includes(this.id)) {
             console.log('inarray')
               if (ev.target.classList.contains('checked')) {
